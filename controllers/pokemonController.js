@@ -1,10 +1,13 @@
 const pokeData = require('../data/data')
 
 const pokemonController = {
-  getById: async (req, res) => {
+  getAll: (req, res) => {
+    res.status(200).json(pokeData)
+  },
+  getById: (req, res) => {
     const { id } = req.params
-    const pokemon = pokeData.filter(item => item.id === id)
-    res.status(200).send(pokemon)
+    const pokemon = pokeData.data.filter(poke => poke.id === parseInt(id))
+    res.status(200).json(pokemon)
   },
 }
 
