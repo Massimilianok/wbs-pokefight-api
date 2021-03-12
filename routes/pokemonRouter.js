@@ -1,8 +1,10 @@
-var express = require('express');
-var router = express.Router();
-
+const express = require('express')
 const data = require('../data/data')
+const pokemonController = require('../controllers/pokemonController')
 
+const router = express.Router()
+
+router.get('/:id', pokemonController.getById)
 
 // Delete one 
 router.delete('/', (req, res, next) => {
