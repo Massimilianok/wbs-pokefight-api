@@ -15,6 +15,12 @@ const login = async (req, res, next) => {
   res.set('x-authorization-token', token).send('User logged in successfully')
 }
 
+const logout = async (req, res) => {
+  req.logout()
+  res.redirect('/')
+}
+
 module.exports = {
-  login
+  login,
+  logout,
 }
