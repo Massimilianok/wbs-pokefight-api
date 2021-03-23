@@ -8,6 +8,8 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/authRouter');
+const dashboardRouter = require('./routes/dashboard');
+
 
 const app = express();
 
@@ -18,7 +20,9 @@ app.use(cookieParser());
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/dashboard', dashboardRouter);
 app.use('/', indexRouter);
 app.use('/api', authRouter);
+
 
 module.exports = app;
