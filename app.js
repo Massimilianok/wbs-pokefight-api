@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
+const dashboardRouter = require('./routes/dashboard');
 
 const app = express();
 
@@ -17,6 +18,8 @@ app.use(cookieParser());
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/dashboard', dashboardRouter);
 app.use('/', indexRouter);
+
 
 module.exports = app;
